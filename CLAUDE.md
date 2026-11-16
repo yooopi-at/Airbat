@@ -8,7 +8,6 @@ Airbat marketing site (B2B wholesale prepaid top-ups), en/de, built on SvelteKit
 
 - Pages: one-page home (`#products`, `#who-we-serve`, `#company` anchors), `contact`, `sign-up`, `newsletter`, `imprint`, `privacy-policy`, `terms-and-conditions`.
 - Company details, stats, office cities and the legal texts are placeholders until real data is supplied; legal pages show a "draft" notice until reviewed by a lawyer.
-- `src/lib/vitest-examples/` holds scaffold sample tests that can be removed.
 
 ## Commands
 
