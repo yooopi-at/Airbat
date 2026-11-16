@@ -31,12 +31,12 @@ If an existing diagnostic already clearly covers the correction, follow it inste
 
 Prepare a title like `Autofixer: detect <incorrect pattern>` and a Markdown body with:
 
-1. **Summary** — the mistake and why it matters.
-2. **Incorrect code** — a fenced minimal example with the relevant filename/file type.
-3. **User correction / expected code** — the corrected example and a brief explanation.
-4. **Proposed detection and fix** — the recognizable pattern, suggested transformation or guidance, and cases where a fix would be ambiguous.
-5. **Current MCP behavior** — the actual relevant output, or explicitly "not checked" with the reason.
-6. **Environment** — Svelte, SvelteKit, MCP, and model versions when known; do not invent missing versions.
+1. **Summary**: the mistake and why it matters.
+2. **Incorrect code**: a fenced minimal example with the relevant filename/file type.
+3. **User correction / expected code**: the corrected example and a brief explanation.
+4. **Proposed detection and fix**: the recognizable pattern, suggested transformation or guidance, and cases where a fix would be ambiguous.
+5. **Current MCP behavior**: the actual relevant output, or explicitly "not checked" with the reason.
+6. **Environment**: Svelte, SvelteKit, MCP, and model versions when known; do not invent missing versions.
 
 The report is ready when a maintainer can understand the pattern and expected outcome without access to the original project.
 

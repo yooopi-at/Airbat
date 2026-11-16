@@ -1,3 +1,65 @@
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/sora';
 @import 'tailwindcss';
 @plugin '@tailwindcss/forms';
 @plugin '@tailwindcss/typography';
+
+@theme {
+	--font-sans: 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+	--font-display: 'Sora Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+	--color-ink: #0b1020;
+	--color-ink-soft: #161c33;
+	--color-paper: #f6f5f0;
+	--color-primary: #6d4aff;
+	--color-primary-dark: #5634e6;
+	--color-lime: #c8f031;
+	--color-slate: #5b6478;
+}
+
+@layer base {
+	html {
+		scroll-behavior: smooth;
+		scroll-padding-top: 5rem;
+	}
+
+	body {
+		@apply bg-paper font-sans text-ink antialiased;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4 {
+		@apply font-display tracking-tight;
+	}
+
+	:focus-visible {
+		@apply outline-2 outline-offset-2 outline-primary;
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		html {
+			scroll-behavior: auto;
+		}
+	}
+}
+
+@utility no-scrollbar {
+	scrollbar-width: none;
+
+	&::-webkit-scrollbar {
+		display: none;
+	}
+}
+
+[data-reveal] {
+	transition:
+		opacity 0.7s ease-out,
+		transform 0.7s ease-out;
+}
+
+[data-reveal='hidden'] {
+	opacity: 0;
+	transform: translateY(1.5rem);
+}
