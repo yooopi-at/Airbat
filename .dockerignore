@@ -1,0 +1,17 @@
+# Dependencies and build output are recreated inside the image
+node_modules
+build
+.svelte-kit
+src/lib/paraglide
+project.inlang/cache
+
+# Never send env files with secrets into the build context
+.env
+.env.*
+!.env.example
+
+# Not needed in the image
+.git
+test-results
+.vscode
+.claude
