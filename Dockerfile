@@ -21,6 +21,11 @@ RUN pnpm build
 
 # Runtime image: built server + production node_modules, running as the unprivileged node user.
 FROM node:24-slim AS runtime
+# curl is needed by Coolify's healthcheck (GET http://localhost:3000/ from inside the container);
+# the slim image ships neither curl nor wget.
+RUN apt-get update \
+	&& apt-get install -y --no-install-recommends curl ca-certificates \
+	&& rm -rf /var/lib/apt/lists/*
 WORKDIR /app
 ENV NODE_ENV=production
 ENV PORT=3000
