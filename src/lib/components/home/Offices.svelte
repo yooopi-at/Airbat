@@ -16,7 +16,7 @@
 >
 	<div class="grid gap-12 lg:grid-cols-2 lg:items-center" {@attach reveal}>
 		<div
-			class="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-ink p-4 text-paper sm:p-6"
+			class="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-ink text-paper"
 		>
 			<EuropeMap />
 		</div>

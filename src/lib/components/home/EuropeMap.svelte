@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { europeBorders, europeLand } from '#lib/content/europe-map.ts';
 	import { mapCities, prague } from '#lib/content/home.ts';
 	import { offsetKm } from '#lib/geo.ts';
 	import { m } from '#lib/paraglide/messages.js';
@@ -18,6 +19,17 @@
 	aria-label={m.europe_map_label({ distance: integer.format(1000) })}
 	class="size-full font-sans"
 >
+	<path d={europeLand} fill="currentColor" class="text-paper/[0.07]" />
+	<path
+		d={europeBorders}
+		fill="none"
+		stroke="currentColor"
+		stroke-width="1"
+		stroke-linejoin="round"
+		vector-effect="non-scaling-stroke"
+		class="text-paper/20"
+	/>
+
 	{#each rings as radius (radius)}
 		<circle
 			r={radius}
@@ -39,7 +51,7 @@
 	{/each}
 
 	{#each cities as city (city.name)}
-		<line x2={city.x} y2={city.y} stroke="currentColor" stroke-width="2" class="text-paper/20" />
+		<line x2={city.x} y2={city.y} stroke="currentColor" stroke-width="2" class="text-paper/15" />
 	{/each}
 
 	{#each cities as city (city.name)}
