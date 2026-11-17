@@ -4,7 +4,25 @@
 	import { ctaPoints } from '#lib/content/home.ts';
 	import { resolve } from '$app/paths';
 	import { localePath } from '#lib/i18n.ts';
+	import { company } from '#lib/content/company.ts';
 	import { m } from '#lib/paraglide/messages.js';
+	import type { Picture } from '@sveltejs/enhanced-img';
+
+	// Optional photo: drop `sales-contact.{jpg,jpeg,png,webp}` into src/lib/assets/images/ to show it.
+	// Until then an initials avatar is shown, so the build works without the file.
+	const photos = import.meta.glob<Picture>(
+		'/src/lib/assets/images/sales-contact.{jpg,jpeg,png,webp}',
+		{ eager: true, query: { enhanced: true }, import: 'default' }
+	);
+	const photo = Object.values(photos)[0];
+
+	const contact = company.salesContact;
+	const initials = contact.name
+		.split(/\s+/)
+		.map((part) => part[0])
+		.join('')
+		.slice(0, 2)
+		.toUpperCase();
 </script>
 
 <section aria-labelledby="cta-title" class="bg-paper px-4 pb-20 sm:px-6 lg:px-8 lg:pb-28">
@@ -32,7 +50,30 @@
 				{/each}
 			</ul>
 		</div>
-		<div class="mt-10 shrink-0 lg:mt-0">
+		<div class="mt-10 flex shrink-0 flex-col items-start gap-8 lg:mt-0">
+			<div class="flex items-center gap-4">
+				<!-- The name sits right next to the image, so the image itself is decorative. -->
+				{#if photo}
+					<enhanced:img
+						src={photo}
+						alt=""
+						sizes="80px"
+						class="size-20 rounded-full object-cover ring-4 ring-lime"
+					/>
+				{:else}
+					<span
+						class="grid size-20 place-items-center rounded-full bg-lime font-display text-2xl font-semibold text-ink"
+						aria-hidden="true"
+					>
+						{initials}
+					</span>
+				{/if}
+				<div>
+					<p class="text-sm text-white/70">{m.cta_contact_label()}</p>
+					<p class="font-display text-lg font-semibold">{contact.name}</p>
+					<p class="text-white/80">{m.cta_contact_role()}</p>
+				</div>
+			</div>
 			<Button href={resolve(localePath('contact'))} variant="lime">
 				{m.cta_button()}
 				<Icon name="arrow-right" class="size-4" />

@@ -2,8 +2,9 @@
 	import { reveal } from '#lib/actions/reveal.ts';
 	import Icon from '#lib/components/Icon.svelte';
 	import Section from '#lib/components/Section.svelte';
-	import { offices } from '#lib/content/home.ts';
+	import { locationBenefits } from '#lib/content/home.ts';
 	import { m } from '#lib/paraglide/messages.js';
+	import EuropeMap from './EuropeMap.svelte';
 </script>
 
 <Section
@@ -13,19 +14,26 @@
 	title={m.offices_title()}
 	intro={m.offices_text()}
 >
-	<ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4" {@attach reveal}>
-		{#each offices as office (office.city)}
-			<li
-				class="relative flex aspect-[3/4] flex-col justify-end overflow-hidden rounded-3xl bg-gradient-to-br p-6 text-paper {office.gradient}"
-			>
-				<div
-					class="absolute -top-10 -right-10 size-40 rounded-full border-[1.5rem] border-paper/10"
-					aria-hidden="true"
-				></div>
-				<Icon name="pin" class="mb-4 size-6" />
-				<p class="font-display text-2xl font-semibold">{office.city}</p>
-				<p class="text-paper/80">{office.country()}</p>
-			</li>
-		{/each}
-	</ul>
+	<div class="grid gap-12 lg:grid-cols-2 lg:items-center" {@attach reveal}>
+		<div
+			class="aspect-square overflow-hidden rounded-3xl bg-gradient-to-br from-primary to-ink p-4 text-paper sm:p-6"
+		>
+			<EuropeMap />
+		</div>
+		<ul class="grid gap-8 sm:grid-cols-2 lg:grid-cols-1">
+			{#each locationBenefits as benefit (benefit.title)}
+				<li class="flex gap-5">
+					<span
+						class="grid size-12 shrink-0 place-items-center rounded-2xl bg-primary/10 text-primary"
+					>
+						<Icon name={benefit.icon} />
+					</span>
+					<div>
+						<h3 class="text-xl font-semibold">{benefit.title()}</h3>
+						<p class="mt-2 text-slate">{benefit.text()}</p>
+					</div>
+				</li>
+			{/each}
+		</ul>
+	</div>
 </Section>

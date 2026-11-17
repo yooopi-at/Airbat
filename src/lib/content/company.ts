@@ -18,5 +18,10 @@ export const company = {
 	registerNumber: 'FN 000000a',
 	registerCourt: 'Handelsgericht Wien',
 	managingDirector: 'Max Mustermann',
-	founded: 2024
+	founded: 2024,
+	/**
+	 * Sales contact shown in the home page CTA band. Placeholder name: replace with the real
+	 * person (with their consent) and add their photo as `src/lib/assets/images/sales-contact.jpg`.
+	 */
+	salesContact: { name: 'Erika Musterfrau' }
 } as const;

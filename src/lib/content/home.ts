@@ -1,5 +1,6 @@
 import { m } from '#lib/paraglide/messages.js';
 import type { IconName } from '#lib/components/Icon.svelte';
+import type { LatLon } from '#lib/geo.ts';
 
 type Text = () => string;
 
@@ -11,7 +12,7 @@ export type Stat = {
 	label: Text;
 };
 export type Feature = { icon: IconName; title: Text; text: Text };
-export type Office = { city: string; country: Text; gradient: string };
+export type MapCity = LatLon & { name: Text; labelSide?: 'left' | 'right' };
 
 /** Headline figures. Placeholder values: replace with real, verifiable numbers before launch. */
 export const stats: Stat[] = [
@@ -46,12 +47,31 @@ export const platformFeatures: Feature[] = [
 	{ icon: 'trending', title: m.platform_scale_title, text: m.platform_scale_text }
 ];
 
-/** Office locations. Placeholder cities: replace with the real offices. */
-export const offices: Office[] = [
-	{ city: 'Vienna', country: m.country_austria, gradient: 'from-primary to-ink' },
-	{ city: 'Munich', country: m.country_germany, gradient: 'from-lime to-primary' },
-	{ city: 'Istanbul', country: m.country_turkey, gradient: 'from-primary to-lime' },
-	{ city: 'Bengaluru', country: m.country_india, gradient: 'from-ink-soft to-primary' }
+/** Benefits of the Prague location, shown next to the office card. */
+export const locationBenefits: Feature[] = [
+	{ icon: 'pin', title: m.location_central_title, text: m.location_central_text },
+	{ icon: 'clock', title: m.location_timezone_title, text: m.location_timezone_text },
+	{ icon: 'shield', title: m.location_eu_title, text: m.location_eu_text },
+	{ icon: 'send', title: m.location_reach_title, text: m.location_reach_text }
+];
+
+/** Centre of the Europe map in the company section. */
+export const prague: LatLon = { lat: 50.08, lon: 14.44 };
+
+/** Hubs plotted around Prague on the Europe map, at their real coordinates. */
+export const mapCities: MapCity[] = [
+	{ name: m.city_berlin, lat: 52.52, lon: 13.4 },
+	{ name: m.city_vienna, lat: 48.21, lon: 16.37 },
+	{ name: m.city_munich, lat: 48.14, lon: 11.58, labelSide: 'left' },
+	{ name: m.city_warsaw, lat: 52.23, lon: 21.01 },
+	{ name: m.city_budapest, lat: 47.5, lon: 19.04 },
+	{ name: m.city_copenhagen, lat: 55.68, lon: 12.57 },
+	{ name: m.city_stockholm, lat: 59.33, lon: 18.07 },
+	{ name: m.city_amsterdam, lat: 52.37, lon: 4.9 },
+	{ name: m.city_paris, lat: 48.86, lon: 2.35 },
+	{ name: m.city_london, lat: 51.51, lon: -0.13 },
+	{ name: m.city_rome, lat: 41.9, lon: 12.5 },
+	{ name: m.city_bucharest, lat: 44.43, lon: 26.1, labelSide: 'left' }
 ];
 
 export const ctaPoints: Text[] = [m.cta_point_1, m.cta_point_2, m.cta_point_3];
