@@ -66,9 +66,6 @@
 				{/each}
 			</ul>
 			<div class="hidden items-center gap-2 sm:flex">
-				<Button href={resolve(localePath('sign-up'))} variant="ghost" class="px-4"
-					>{m.nav_login()}</Button
-				>
 				<Button href={resolve(localePath('sign-up'))} variant="lime" class="px-5 py-2.5"
 					>{m.nav_signup()}</Button
 				>
@@ -106,14 +103,6 @@
 			{/each}
 		</ul>
 		<div class="mt-6 flex gap-3 sm:hidden">
-			<Button
-				href={resolve(localePath('sign-up'))}
-				variant="outline"
-				class="flex-1"
-				onclick={close}
-			>
-				{m.nav_login()}
-			</Button>
 			<Button href={resolve(localePath('sign-up'))} variant="lime" class="flex-1" onclick={close}>
 				{m.nav_signup()}
 			</Button>
