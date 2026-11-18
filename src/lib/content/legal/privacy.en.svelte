@@ -14,7 +14,7 @@
 <h2>1. Controller</h2>
 <p>
 	{company.legalName}, {company.street}, {company.postalCode}
-	{company.city}, Austria,
+	{company.city}, Czechia,
 	<a href="mailto:{company.email}">{company.email}</a>
 </p>
 

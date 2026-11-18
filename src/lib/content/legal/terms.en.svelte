@@ -9,7 +9,7 @@
 		},
 		{
 			title: 'About us',
-			text: `${company.legalName}, ${company.street}, ${company.postalCode} ${company.city}, Austria, registered under ${company.registerNumber}.`
+			text: `${company.legalName}, ${company.street}, ${company.postalCode} ${company.city}, Czechia, registered under ${company.registerNumber}.`
 		},
 		{
 			title: 'Eligibility and registration',

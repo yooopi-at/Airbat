@@ -5,10 +5,10 @@
 export const company = {
 	name: 'Airbat',
 	legalName: 'Airbat GmbH',
-	street: 'Musterstraße 1',
-	postalCode: '1010',
-	city: 'Wien',
-	country: 'Österreich',
+	street: 'Jičínská 226/17, Žižkov',
+	postalCode: '130 00',
+	city: 'Prague',
+	country: 'Tschechien',
 	phone: '+43 1 000 00 00',
 	/** Phone number in E.164 format, used for tel: links. */
 	phoneE164: '+43100000000',

@@ -4,6 +4,7 @@
 	import CtaBand from '#lib/components/home/CtaBand.svelte';
 	import Hero from '#lib/components/home/Hero.svelte';
 	import Offices from '#lib/components/home/Offices.svelte';
+	// import OfficesPhoto from '#lib/components/home/OfficesPhoto.svelte';
 	import Platform from '#lib/components/home/Platform.svelte';
 	import Products from '#lib/components/home/Products.svelte';
 	import Stats from '#lib/components/home/Stats.svelte';
@@ -22,4 +23,5 @@
 <Audiences />
 <Platform />
 <Offices />
+<!-- <OfficesPhoto /> -->
 <CtaBand />

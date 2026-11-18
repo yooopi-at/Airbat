@@ -12,7 +12,7 @@
 	{company.legalName}<br />
 	{company.street}<br />
 	{company.postalCode}
-	{company.city}, Austria
+	{company.city}, Czechia
 </p>
 
 <h2>Contact</h2>
